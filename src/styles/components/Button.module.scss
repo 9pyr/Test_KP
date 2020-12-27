@@ -1,0 +1,125 @@
+$color-primary: var(--color-primary);
+$color-primary-hv: var(--color-primary-hover);
+$color-gray: var(--color-gray);
+
+@mixin btn-color($color, $border, $bg) {
+  color: $color;
+  border: 0.05rem solid $border;
+  background: $bg;
+}
+
+@mixin set-color($name, $invert) {
+  &-bg-#{'' + $name} {
+    @include btn-color(
+      var(--color-#{$invert}),
+      var(--color-#{$name}),
+      var(--color-#{$name})
+    );
+
+    svg path {
+      fill: var(--color-#{$invert});
+    }
+    &:hover {
+      @include btn-color(
+        var(--color-#{$name}),
+        var(--color-#{$name}),
+        transparent
+      );
+    }
+
+    &-outline {
+      @include btn-color(
+        var(--color-#{$name}),
+        var(--color-#{$name}),
+        transparent
+      );
+
+      svg path {
+        fill: var(--color-#{$name});
+      }
+      &:hover {
+        @include btn-color(
+          var(--color-#{$invert}),
+          var(--color-#{$name}),
+          var(--color-#{$name})
+        );
+        svg path {
+          fill: var(--color-#{$invert});
+        }
+      }
+    }
+    &-light {
+      @include btn-color(
+        var(--color-#{$name}),
+        var(--color-#{$invert}),
+        var(--color-#{$name}-hv)
+      );
+
+      svg path {
+        fill: var(--color-#{$name});
+      }
+      &:hover {
+        @include btn-color(
+          var(--color-#{$invert}),
+          var(--color-#{$name}),
+          var(--color-#{$name})
+        );
+        svg path {
+          fill: var(--color-#{$invert});
+        }
+      }
+    }
+  }
+}
+.btn {
+  $speed: 200ms;
+
+  cursor: pointer;
+  display: inline-flex;
+  outline: none;
+
+  min-width: 6rem;
+  padding: 0.3rem 0.9rem;
+  margin: 0.1rem;
+
+  transition: background $speed, color $speed, border $speed;
+
+  @include set-color(primary, white);
+  @include set-color(white, primary);
+  @include set-color(danger, white);
+  @include set-color(success, white);
+  @include set-color(info, white);
+  @include set-color(warn, white);
+  @include set-color(black, white);
+
+  &:disabled {
+    @include btn-color(white, $color-gray, $color-gray);
+  }
+
+  @extend .none-select;
+  @extend .center-middle;
+  @extend .radius;
+}
+
+.none-select {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.center-middle {
+  @extend .center;
+  @extend .middle;
+}
+.center {
+  justify-content: center;
+}
+.middle {
+  align-items: center;
+}
+.radius {
+  border-radius: var(--radius);
+}
+.btn.round {
+  border-radius: 34px !important;
+}

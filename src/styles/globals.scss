@@ -1,0 +1,176 @@
+@import './bootstrap.min.css';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+:root {
+  --color-primary: #009dff;
+  --color-primary-hv: #009dff40;
+  --color-gray: #e6e6e6;
+  --color-soft-gray: #f3f3f3;
+  --color-info: #0085ffff;
+  --color-info-opt: #0085ff40;
+  --color-danger: #ff0000ff;
+  --color-warn: #ffb800ff;
+  --color-success: #00d462ff;
+
+  --color-black: #000;
+  --color-white: #fff;
+  --color-none: none;
+
+  --radius: 0.2rem;
+}
+
+@mixin set-color($name, $property) {
+  &-#{'' + $name} {
+    #{$property}: var(--color-#{$name});
+  }
+}
+.txt {
+  @include set-color(primary, color);
+  @include set-color(gray, color);
+  @include set-color(soft-gray, color);
+  @include set-color(info, color);
+  @include set-color(danger, color);
+  @include set-color(success, color);
+  @include set-color(warn, color);
+
+  // root
+  @include set-color(black, color);
+  @include set-color(white, color);
+}
+.bg {
+  @include set-color(primary, background);
+  @include set-color(gray, background);
+  @include set-color(soft-gray, background);
+  @include set-color(info, background);
+  @include set-color(danger, background);
+  @include set-color(success, background);
+  @include set-color(warn, background);
+
+  // root
+  @include set-color(black, background);
+  @include set-color(white, background);
+  @include set-color(none, background);
+}
+
+@mixin set-cols($size) {
+  &-#{$size} {
+    grid-template-columns: repeat($size, 1fr);
+  }
+}
+@mixin set-col($size) {
+  &-#{$size} {
+    grid-column: auto / span $size;
+  }
+}
+@mixin set-rows($size) {
+  &-#{$size} {
+    grid-template-rows: repeat($size, 1fr);
+  }
+}
+@mixin set-row($size) {
+  &-#{$size} {
+    grid-row: auto / span $size;
+  }
+}
+
+.gird-cols {
+  @include set-cols(1);
+  @include set-cols(2);
+  @include set-cols(3);
+  @include set-cols(4);
+  @include set-cols(5);
+  @include set-cols(6);
+  @include set-cols(7);
+  @include set-cols(8);
+  @include set-cols(9);
+  @include set-cols(10);
+  @include set-cols(11);
+  @include set-cols(12);
+}
+.gird-col {
+  @include set-col(1);
+  @include set-col(2);
+  @include set-col(3);
+  @include set-col(4);
+  @include set-col(5);
+  @include set-col(6);
+  @include set-col(7);
+  @include set-col(8);
+  @include set-col(9);
+  @include set-col(10);
+  @include set-col(11);
+  @include set-col(12);
+}
+.gird-rows {
+  @include set-rows(1);
+  @include set-rows(2);
+  @include set-rows(3);
+  @include set-rows(4);
+  @include set-rows(5);
+  @include set-rows(6);
+  @include set-rows(7);
+  @include set-rows(8);
+  @include set-rows(9);
+  @include set-rows(10);
+  @include set-rows(11);
+  @include set-rows(12);
+}
+.gird-row {
+  @include set-row(1);
+  @include set-row(2);
+  @include set-row(3);
+  @include set-row(4);
+  @include set-row(5);
+  @include set-row(6);
+  @include set-row(7);
+  @include set-row(8);
+  @include set-row(9);
+  @include set-row(10);
+  @include set-row(11);
+  @include set-row(12);
+}
+.grid-align-center {
+  justify-content: center;
+}
+
+.space-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.text-700 {
+  font-weight: 700;
+}
+.round {
+  border-radius: 34px;
+}
+
+.h-fit-content {
+  height: fit-content;
+}
+.w-fit-content {
+  width: fit-content;
+}
+.btn-link {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
