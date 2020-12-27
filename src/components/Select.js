@@ -15,6 +15,7 @@ const Select = ({
   required,
   option,
   optionKey,
+  config,
   ...Props
 }) => {
   return (
@@ -26,6 +27,7 @@ const Select = ({
       label={label}
       required={required}
       name={name}
+      config={config}
     >
       <select
         type={type}

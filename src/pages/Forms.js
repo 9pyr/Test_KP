@@ -113,6 +113,8 @@ const Forms = () => {
                   onChange={onChangeValue}
                   maxLength={1}
                   className="text-center"
+                  required={!!values.citizen_id}
+                  config={{ required: 'hide' }}
                 />
                 <Input
                   col={2}
@@ -127,6 +129,8 @@ const Forms = () => {
                   onChange={onChangeValue}
                   maxLength={4}
                   className="text-center"
+                  required={!!values.citizen_id}
+                  config={{ required: 'hide' }}
                 />
                 <Input
                   col={2}
@@ -141,6 +145,8 @@ const Forms = () => {
                   onChange={onChangeValue}
                   maxLength={5}
                   className="text-center"
+                  required={!!values.citizen_id}
+                  config={{ required: 'hide' }}
                 />
                 <Input
                   label={<strong>-&nbsp;</strong>}
@@ -154,6 +160,8 @@ const Forms = () => {
                   onChange={onChangeValue}
                   maxLength={2}
                   className="text-center"
+                  required={!!values.citizen_id}
+                  config={{ required: 'hide' }}
                 />
                 <Input
                   label={<strong>-&nbsp;</strong>}
@@ -167,6 +175,8 @@ const Forms = () => {
                   onChange={onChangeValue}
                   maxLength={1}
                   className="text-center"
+                  required={!!values.citizen_id}
+                  config={{ required: 'hide' }}
                 />
               </InputGroup>
             </Grid>
